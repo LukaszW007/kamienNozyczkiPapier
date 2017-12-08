@@ -1,4 +1,4 @@
-var newGameBtn = document.getElementById('js-newGameElement'),
+var newGameBtn = document.getElementById('js-newGameButton'),
     pickRock = document.getElementById('js-playerPick_rock'),
     pickPaper = document.getElementById('js-playerPick_paper'),
     pickScissors = document.getElementById('js-playerPick_scissors'),
@@ -43,10 +43,7 @@ function setGameElements () {
             resultsElem.style.display = 'block';
             break;
         case 'ended':
-            newGameElem.style.display = 'block';
-            pickElem.style.display = 'none';
-            resultsElem.style.display = 'none';
-            newGameBtn.innerText = 'Jeszcze raz';
+            newGameBtn.innerText = 'Jeszcze raz?';
         case 'notStarted':
         default:
             newGameElem.style.display = 'block';
@@ -100,15 +97,21 @@ function playerPick (playerPick) {
 }
 
 function setGamePoints() {
+    console.log('palyer: '+player.score);
     playerPointsElem.innerHTML = player.score;
+    console.log('palyer: '+player.score);
+    console.log('computer: '+computer.score);
     computerPointsElem.innerHTML = computer.score;
+    console.log('computer: '+computer.score);
 }
 
 function winnerCheck(){
     if (player.score == 10){
+        console.log('palyer: '+player.score)
         alert("The winner is "+player.name);
         gameState = 'ended';
     }else if (computer.score == 10){
+        console.log('computer: '+computer.score)
         alert("Unfortunatelly your PC had more luck! Good luck next time! :)");
         gameState = 'ended';
     }
