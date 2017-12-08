@@ -68,7 +68,6 @@ function checkRoundWinner (playerPick, computerPick) {
         (computerPick === 'rock' && playerPick === 'scissors') ||
         (computerPick === 'scissors' && playerPick === 'paper') ||
         (computerPick === 'paper' && playerPick === 'rock')) {
-
         winnerIs = 'computer';
     }
 
@@ -79,17 +78,15 @@ function checkRoundWinner (playerPick, computerPick) {
         computerResultElem.innerHTML = "Win!";
         computer.score++;
     }else if (winnerIs === 'noone') {
-        playerResultElem.innerHTML = "Remis";
-        computerResultElem.innerHTML = "Remis";
+        playerResultElem.innerHTML = "Draw";
+        computerResultElem.innerHTML = "Draw";
     }
 }
 
 function playerPick (playerPick) {
     var computerPick = getComputerPick();
-
     playerPickElem.innerHTML = playerPick;
     computerPickElem.innerHTML = computerPick;
-
     checkRoundWinner(playerPick, computerPick);
     setGamePoints();
     winnerCheck();
@@ -115,7 +112,6 @@ function winnerCheck(){
         alert("Unfortunatelly your PC had more luck! Good luck next time! :)");
         gameState = 'ended';
     }
-
 }
 
 function newGame () {
@@ -124,11 +120,8 @@ function newGame () {
         player.score = computer.score = 0;
         gameState = 'started';
         setGameElements();
-
         playerNameElem.innerHTML = player.name;
-
     }
-
 }
 
 setGameElements(gameState);
